@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Support Role Shifts</h1>
+  <p><a href="{% url 'shift_create' %}">Add Shift</a></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for shift in object_list %}
+        <tr>
+          <td>{{ shift.date }}</td>
+          <td>{{ shift.start_time }}</td>
+          <td>{{ shift.end_time }}</td>
+          <td>
+            <a href="{% url 'shift_update' shift.id %}">Edit</a>
+            <a href="{% url 'shift_delete' shift.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
