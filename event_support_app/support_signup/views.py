@@ -19,8 +19,8 @@ class ParticipantCreateView(CreateView):
         participant.save()
         shifts = form.cleaned_data.get('shifts', [])
         for shift in shifts:
-            role = Role.objects.get(form.cleaned_data.get('role'))
-
+            role = form.cleaned_data.get('role')
+            role = Role.objects.get(name=role)
             ParticipantShift.objects.create(
                 participant=participant,
                 role=role,

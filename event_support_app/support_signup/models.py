@@ -32,6 +32,11 @@ class ParticipantShift(models.Model):
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     shift = models.ForeignKey(SupportRoleShift, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('participant', 'shift')
 
     def __str__(self):
         return f'{self.participant} - {self.role} - {self.shift}'
+
+    
