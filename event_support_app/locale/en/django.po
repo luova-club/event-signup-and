@@ -1,0 +1,14 @@
+msgid "Name"
+msgstr "Name in English"
+
+msgid "Email"
+msgstr "Email in English"
+
+msgid "Role"
+msgstr "Role in English"
+
+msgid "Shifts"
+msgstr "Shifts in English"
+
+msgid "Sign Up"
+msgstr "Sign Up in English"

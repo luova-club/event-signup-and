@@ -1,13 +1,28 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+# Participant Views
 
-from .models import SupportRoleShift, Participant, Role, ParticipantShift
-from .forms import ParticipantForm
+This module contains views for the `Participant` model.
+
+## List View
+
+`ParticipantListView` is a generic `ListView` that displays a list of all `Participant` objects.
+
+```python
+from django.views.generic import ListView
+from .models import Participant
 
 class ParticipantListView(ListView):
     model = Participant
+```
+
+## Create View
+
+`ParticipantCreateView` is a generic `CreateView` that creates a new `Participant` object. It also creates `ParticipantShift` objects for each shift selected by the participant.
+
+```python
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from .models import Participant, Role, ParticipantShift
+from .forms import ParticipantForm
 
 class ParticipantCreateView(CreateView):
     model = Participant
@@ -27,6 +42,17 @@ class ParticipantCreateView(CreateView):
                 shift=shift
             )
         return redirect(self.success_url)
+```
+
+## Update View
+
+`ParticipantUpdateView` is a generic `UpdateView` that updates an existing `Participant` object. It also updates `ParticipantShift` objects for the participant's shifts.
+
+```python
+from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
+from .models import Participant, Role, ParticipantShift
+from .forms import ParticipantForm
 
 class ParticipantUpdateView(UpdateView):
     model = Participant
@@ -47,7 +73,20 @@ class ParticipantUpdateView(UpdateView):
                 shift=shift
             )
         return redirect(self.success_url)
+```
+
+## Delete View
+
+`ParticipantDeleteView` is a generic `DeleteView` that deletes an existing `Participant` object.
+
+```python
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
+from .models import Participant
 
 class ParticipantDeleteView(DeleteView):
     model = Participant
     success_url = reverse_lazy('participant_list')
+```
+
+These views are used to interact with the `Participant` model in the Event Signup and Support Application.

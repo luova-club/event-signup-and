@@ -5,8 +5,8 @@ from django.utils import timezone
 
 class SupportRoleShift(models.Model):
     date = models.DateField(default=timezone.now)
-    start_time = models.TimeField(default=timezone.now)
-    end_time = models.TimeField(default=timezone.now)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
 
     def __str__(self):
         return f'{self.date} kello {self.start_time} - {self.end_time}'
@@ -18,8 +18,7 @@ class Participant(models.Model):
     shifts = models.ManyToManyField('SupportRoleShift', through='ParticipantShift')
 
     def __str__(self):
-        return self.name
-
+        return f'{self.name}'
 
 class Role(models.Model):
     name = models.CharField(max_length=100)
@@ -38,5 +37,3 @@ class ParticipantShift(models.Model):
 
     def __str__(self):
         return f'{self.participant} - {self.role} - {self.shift}'
-
-    

@@ -1,0 +1,14 @@
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Email"
+msgstr "Sähköposti"
+
+msgid "Role"
+msgstr "Rooli"
+
+msgid "Shifts"
+msgstr "Vuorot"
+
+msgid "Sign Up"
+msgstr "Ilmoittaudu"
