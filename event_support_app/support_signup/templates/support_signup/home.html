@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="container d-flex align-items-center justify-content-center"> <!--style="height: 100vh;">-->
+    <div class="col-md-8">
+      <h1 class="text-center mb-5">{% trans "Chillauskeskus" %}</h1>
+      <p class="text-center">{% trans "The Chillauskeskus will take place on 17-19 July in Töölönlahti Park in Helsinki, Finland." %}</p>
+      <div class="row mt-5">
+        <div class="col text-center">
+          <h2>{% trans "Do you want to perform?" %}</h2>
+          <p class="text-center">{% trans "If you want to perform, contact us!" %}</p>
+          <div class="d-flex justify-content-center">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWuQzK4WygKyCQAC9H5D3u-QSRjcApB2KwN-j4doTZi9pZtg/viewform?usp=sf_link" class="btn btn-primary">{% trans "I want to perform" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-center">
+        <a href="{% url 'participant_create' %}" class="btn btn-primary">{% trans "Sign up for support roles" %}</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

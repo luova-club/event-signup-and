@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from .models import SupportRoleShift, Participant, Role, ParticipantShift
+from .models import SupportRoleShift, Participant, Role, ParticipantShift, Schedule
 from django.contrib import admin
 from django import forms
 from datetime import datetime
@@ -56,6 +56,10 @@ class ParticipantAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     inlines = [ParticipantShiftInline]
 
+@admin.register(Schedule)
+class ScheduleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'start_time', 'end_time')
+    search_fields = ['title']
 
 @admin.register(ParticipantShift)
 class ParticipantShiftAdmin(admin.ModelAdmin):

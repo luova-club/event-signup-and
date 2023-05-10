@@ -12,6 +12,16 @@ class SupportRoleShift(models.Model):
         return f'{self.date} kello {self.start_time} - {self.end_time}'
 
 
+class Schedule(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
+
 class Participant(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

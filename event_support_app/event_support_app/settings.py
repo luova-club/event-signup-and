@@ -151,4 +151,4 @@ LANGUAGES = [
     ('fi', 'Suomi'),
 ]
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fi'
