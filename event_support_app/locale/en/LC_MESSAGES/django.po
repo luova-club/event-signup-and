@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 15:49+0000\n"
+"POT-Creation-Date: 2023-05-12 15:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: support_signup/forms.py:20
+#: support_signup/templates/support_signup/participant_form.html:12
+msgid "Nickname"
+msgstr ""
+
+#: support_signup/forms.py:21
+#: support_signup/templates/support_signup/participant_form.html:16
+msgid "Email"
+msgstr ""
 
 #: support_signup/templates/base.html:22
 msgid "About"
@@ -72,8 +82,8 @@ msgstr ""
 
 #: support_signup/templates/support_signup/home.html:7
 msgid ""
-"Chillauskeskus järjestetään 17.-19. heinäkuuta ja se pidetään Töölönlahden "
-"puistossa Helsingissä, Suomessa."
+"The Chillauskeskus will take place on 17-19 July in Töölönlahti Park in "
+"Helsinki, Finland."
 msgstr ""
 
 #: support_signup/templates/support_signup/home.html:10
@@ -90,15 +100,7 @@ msgstr ""
 
 #: support_signup/templates/support_signup/home.html:18
 msgid "Sign up for support roles"
-msgstr ""
-
-#: support_signup/templates/support_signup/participant_form.html:12
-msgid "Name"
-msgstr ""
-
-#: support_signup/templates/support_signup/participant_form.html:16
-msgid "Email"
-msgstr ""
+msgstr "Sign up"
 
 #: support_signup/templates/support_signup/participant_form.html:20
 msgid "Role"
