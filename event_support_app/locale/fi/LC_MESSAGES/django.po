@@ -110,7 +110,7 @@ msgstr "Haluan esiintyä!"
 
 #: support_signup/templates/support_signup/home.html:18
 msgid "Sign up for support roles"
-msgstr "Ilmoittaudu"
+msgstr "Ilmoittaudu auttamaan"
 
 #: support_signup/templates/support_signup/participant_form.html:20
 msgid "Role"

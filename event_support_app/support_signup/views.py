@@ -86,7 +86,7 @@ class ParticipantUpdateView(UpdateView):
                 role=role,
                 shift=shift
             )
-        return redirect(self.success_url)
+        return render(self.request, "thank_you.html")
 
 class ParticipantDeleteView(DeleteView):
     model = Participant
