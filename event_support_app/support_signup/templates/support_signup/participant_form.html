@@ -5,7 +5,6 @@
 {% load i18n %}
 
 <h1 class="text-center">Support Sign Up</h1>
-
 <form method="post">
   {% csrf_token %}
   <div class="mx-auto mb-3 col-6">
@@ -28,5 +27,22 @@
     <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
   </div>
 </form>
+<script>
+  // Make an AJAX call to the server to get the shifts for the selected role
+  const roleSelect = document.querySelector("#id_role");
+  const shiftsSelect = document.querySelector("#id_shifts");
 
+  roleSelect.addEventListener("change", async (event) => {
+    const response = await fetch(`/get_shifts_for_role/${event.target.value}/`);
+    const data = await response.json();
+    // Update the list of shifts
+    shiftsSelect.innerHTML = "";
+    for (const shift of data) {
+      const option = document.createElement("option");
+      option.value = shift.id;
+      option.textContent = `${shift.date} ${shift.start_time}-${shift.end_time}`;
+      shiftsSelect.appendChild(option);
+    }
+  });
+</script>
 {% endblock %}

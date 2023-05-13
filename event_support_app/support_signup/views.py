@@ -1,16 +1,16 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views import View
-from django.views.i18n import set_language
-from django.utils.translation import activate, get_language, gettext_lazy as _
 from django.conf import settings
 from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
 from django.utils.crypto import get_random_string
+from django.utils.translation import activate, get_language, gettext_lazy as _
+from django.views import View
+from django.views.decorators.http import require_GET
+from django.views.generic.edit import CreateView
 
-from .models import Schedule, Participant, Role, ParticipantShift
 from .forms import ParticipantForm
-
+from .models import Role, Schedule, Shift, Participant, ParticipantShift, RoleShift
 
 class LanguageSwitchView(View):
     def post(self, request, *args, **kwargs):
@@ -41,6 +41,33 @@ def event_schedule(request):
     event_schedule = Schedule.objects.filter()
     context = {'schedule': event_schedule}
     return render(request, 'event_schedule.html', context)
+
+# views.py
+
+from django.shortcuts import render
+from .models import Role, Shift
+
+from django.shortcuts import render
+from .models import Role
+
+def role_list(request):
+    roles = Role.objects.all()
+    context = {'roles': roles}
+    return render(request, 'role_list.html', context)
+
+
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+from .models import RoleShift
+
+
+@require_GET
+def get_shifts_for_role(request, role_id):
+    shifts = RoleShift.objects.filter(role_id=role_id)
+    data = [{'id': shift.shift.id, 'date': shift.shift.date.strftime('%Y-%m-%d'),
+             'start_time': shift.shift.start_time.strftime('%H:%M:%S'),
+             'end_time': shift.shift.end_time.strftime('%H:%M:%S')} for shift in shifts]
+    return JsonResponse(data, safe=False)
 
 
 class ParticipantCreateView(CreateView):
