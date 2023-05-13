@@ -13,13 +13,13 @@ from . import views
 urlpatterns = [
     path('create/', ParticipantCreateView.as_view(), name='participant_create'),
     path('', home, name='home'),
-    path('schedule/', views.event_schedule, name='schedule'),
     path('about/', views.about, name='about'),
     path('confirm/<str:token>', ParticipantConfirmView.as_view(),
          name='confirm_attendance'),
     path('thank_you', views.thank, name="thank_you"),
     path("roles", views.role_list, name="role_list"),
-    path('get_shifts_for_role/<int:role_id>/', get_shifts_for_role, name='get_shifts_for_role'),
+    path('get_shifts_for_role/<int:role_id>/',
+         get_shifts_for_role, name='get_shifts_for_role'),
 
 
 ]

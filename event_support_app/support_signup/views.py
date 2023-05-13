@@ -1,3 +1,7 @@
+from django.shortcuts import render
+from .models import RoleShift
+from .models import Role
+from .models import Role, Shift
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -10,7 +14,8 @@ from django.views.decorators.http import require_GET
 from django.views.generic.edit import CreateView
 
 from .forms import ParticipantForm
-from .models import Role, Schedule, Shift, Participant, ParticipantShift, RoleShift
+from .models import Role, Shift, Participant, ParticipantShift, RoleShift
+
 
 class LanguageSwitchView(View):
     def post(self, request, *args, **kwargs):
@@ -37,28 +42,10 @@ def about(request):
     return render(request, 'support_signup/about.html')
 
 
-def event_schedule(request):
-    event_schedule = Schedule.objects.filter()
-    context = {'schedule': event_schedule}
-    return render(request, 'event_schedule.html', context)
-
-# views.py
-
-from django.shortcuts import render
-from .models import Role, Shift
-
-from django.shortcuts import render
-from .models import Role
-
 def role_list(request):
     roles = Role.objects.all()
     context = {'roles': roles}
     return render(request, 'role_list.html', context)
-
-
-from django.http import JsonResponse
-from django.views.decorators.http import require_GET
-from .models import RoleShift
 
 
 @require_GET
