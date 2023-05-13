@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-12 15:06+0000\n"
+"POT-Creation-Date: 2023-05-13 08:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: support_signup/forms.py:20
-#: support_signup/templates/support_signup/participant_form.html:12
+#: support_signup/forms.py:25
+#: support_signup/templates/support_signup/participant_form.html:11
 msgid "Nickname"
 msgstr ""
 
-#: support_signup/forms.py:21
-#: support_signup/templates/support_signup/participant_form.html:16
+#: support_signup/forms.py:26
+#: support_signup/templates/support_signup/participant_form.html:15
 msgid "Email"
 msgstr ""
 
@@ -102,14 +102,28 @@ msgstr ""
 msgid "Sign up for support roles"
 msgstr "Sign up"
 
-#: support_signup/templates/support_signup/participant_form.html:20
+#: support_signup/templates/support_signup/participant_form.html:19
 msgid "Role"
 msgstr ""
 
-#: support_signup/templates/support_signup/participant_form.html:24
+#: support_signup/templates/support_signup/participant_form.html:23
 msgid "Shifts"
 msgstr ""
 
-#: support_signup/templates/support_signup/participant_form.html:28
+#: support_signup/templates/support_signup/participant_form.html:27
 msgid "Sign up"
+msgstr ""
+
+#: support_signup/templates/thank_you.html:6
+msgid "Thank you for signing up!"
+msgstr ""
+
+#: support_signup/views.py:99
+msgid "Confirm your attendance"
+msgstr ""
+
+#: support_signup/views.py:100
+#, python-format
+msgid ""
+"Please confirm your attendance by clicking on the following link: http://%s%s"
 msgstr ""

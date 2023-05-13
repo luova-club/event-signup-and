@@ -1,11 +1,10 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from .models import SupportRoleShift, Participant, Role, ParticipantShift, Schedule
+from .models import Participant, Role, ParticipantShift, Schedule
 from django.contrib import admin
 from django import forms
 from datetime import datetime
 
-from .models import SupportRoleShift
 
 
 class ParticipantShiftInline(admin.TabularInline):
@@ -28,26 +27,27 @@ class TimeInput(forms.TimeInput):
         return super().format_value(value)
 
 
-class SupportRoleShiftForm(forms.ModelForm):
-    class Meta:
-        model = SupportRoleShift
-        fields = '__all__'
-        widgets = {
-            'start_time': TimeInput(),
-            'end_time': TimeInput(),
-        }
 
+# admin.py
 
-class SupportRoleShiftAdmin(admin.ModelAdmin):
-    form = SupportRoleShiftForm
+from django.contrib import admin
+from .models import Shift, Role, RoleShift
 
+class ShiftInline(admin.TabularInline):
+    model = Role.shifts.through
 
-admin.site.register(SupportRoleShift, SupportRoleShiftAdmin)
+class RoleShiftInline(admin.TabularInline):
+    model = RoleShift
 
+class ShiftAdmin(admin.ModelAdmin):
+    inlines = [RoleShiftInline]
 
-@admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    inlines = [ShiftInline, RoleShiftInline]
+
+admin.site.register(Shift, ShiftAdmin)
+admin.site.register(Role, RoleAdmin)
+
 
 
 @admin.register(Participant)
