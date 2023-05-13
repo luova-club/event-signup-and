@@ -1,6 +1,7 @@
 from django.db import models
-
+import uuid
 from django.utils import timezone
+from django.urls import reverse
 
 
 class SupportRoleShift(models.Model):
@@ -29,6 +30,15 @@ class Participant(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+class Participant(models.Model):
+    # existing fields
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    shifts = models.ManyToManyField(SupportRoleShift, through='ParticipantShift')
+    
+    token = models.UUIDField(default=uuid.uuid4, editable=False)
+    is_confirmed = models.BooleanField(default=False)
 
 class Role(models.Model):
     name = models.CharField(max_length=100)

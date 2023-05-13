@@ -5,7 +5,8 @@ from .views import (
     ParticipantUpdateView,
     ParticipantDeleteView,
     LanguageSwitchView,
-    home
+    home,
+    ParticipantConfirmView
 )
 from . import views
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('<int:pk>/update/', ParticipantUpdateView.as_view(), name='participant_update'),
     path('<int:pk>/delete/', ParticipantDeleteView.as_view(), name='participant_delete'),
     path('schedule/', views.event_schedule, name='schedule'),
-    path('about/', views.about, name='about')
+    path('about/', views.about, name='about'),
+    path('confirm/<str:token>', ParticipantConfirmView.as_view(), name='confirm_attendance'),
 
 ]

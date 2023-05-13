@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-12 15:06+0000\n"
+"POT-Creation-Date: 2023-05-13 06:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,4 +112,18 @@ msgstr ""
 
 #: support_signup/templates/support_signup/participant_form.html:28
 msgid "Sign up"
+msgstr ""
+
+#: support_signup/templates/thank_you.html:4
+msgid "Thank you for signing up!"
+msgstr ""
+
+#: support_signup/views.py:93
+msgid "Confirm your attendance"
+msgstr ""
+
+#: support_signup/views.py:94
+#, python-format
+msgid ""
+"Please confirm your attendance by clicking on the following link: http://%s%s"
 msgstr ""
