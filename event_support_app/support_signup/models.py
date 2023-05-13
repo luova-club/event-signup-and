@@ -24,21 +24,14 @@ class Schedule(models.Model):
 
 
 class Participant(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    shifts = models.ManyToManyField('SupportRoleShift', through='ParticipantShift')
-
-    def __str__(self):
-        return f'{self.name}'
-
-class Participant(models.Model):
     # existing fields
     name = models.CharField(max_length=255)
     email = models.EmailField()
     shifts = models.ManyToManyField(SupportRoleShift, through='ParticipantShift')
-    
-    token = models.UUIDField(default=uuid.uuid4, editable=False)
+
+    token = models.CharField(max_length=100)
     is_confirmed = models.BooleanField(default=False)
+
 
 class Role(models.Model):
     name = models.CharField(max_length=100)
