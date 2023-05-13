@@ -4,7 +4,7 @@
 
 {% load i18n %}
 
-<h1 class="text-center">Support Sign Up</h1>
+<h1 class="text-center">{% trans 'Support Sign Up' %}</h1>
 <form method="post">
   {% csrf_token %}
   <div class="mx-auto mb-3 col-6">
@@ -21,19 +21,19 @@
   </div>
   <div class="mx-auto mb-3 col-6">
     <label for="{{ form.shifts.id_for_label }}" class="form-label">{% trans "Shifts" %}</label>
-    {{ form.shifts }}
+    <select name="shifts" class="form-select" aria-label="Shifts" required id="id_shifts" multiple>
+</select>
   </div>
   <div class="d-grid gap-2 col-6 mx-auto">
     <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
   </div>
 </form>
 <script>
-  // Make an AJAX call to the server to get the shifts for the selected role
   const roleSelect = document.querySelector("#id_role");
   const shiftsSelect = document.querySelector("#id_shifts");
 
-  roleSelect.addEventListener("change", async (event) => {
-    const response = await fetch(`/get_shifts_for_role/${event.target.value}/`);
+  function getShiftsForRole(roleId) {
+    const response = await fetch(`/get_shifts_for_role/${roleId}/`);
     const data = await response.json();
     // Update the list of shifts
     shiftsSelect.innerHTML = "";
@@ -43,6 +43,17 @@
       option.textContent = `${shift.date} ${shift.start_time}-${shift.end_time}`;
       shiftsSelect.appendChild(option);
     }
+  }
+
+  // Call the function with the first role ID when the HTML is loaded
+  window.addEventListener('load', () => {
+    getShiftsForRole(roleSelect.value);
   });
+
+  // Update the shifts when the role is changed
+  roleSelect.addEventListener("change", async (event) => {
+    getShiftsForRole(event.target.value);
+  });
+
 </script>
 {% endblock %}
