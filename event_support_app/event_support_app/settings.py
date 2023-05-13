@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "support_signup",
     'django_bootstrap5',
+    "schedule"
 
 ]
 

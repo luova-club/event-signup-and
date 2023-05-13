@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 08:39+0000\n"
+"POT-Creation-Date: 2023-05-13 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: schedule/templates/event_schedule.html:7
+#: support_signup/templates/base.html:25
+msgid "Schedule"
+msgstr ""
+
+#: schedule/templates/event_schedule.html:11
+msgid "Title"
+msgstr ""
+
+#: schedule/templates/event_schedule.html:12
+msgid "Description"
+msgstr ""
+
+#: schedule/templates/event_schedule.html:13
+msgid "Start Time"
+msgstr ""
+
+#: schedule/templates/event_schedule.html:14
+msgid "End Time"
+msgstr ""
 
 #: support_signup/forms.py:25
 #: support_signup/templates/support_signup/participant_form.html:11
@@ -32,29 +53,12 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: support_signup/templates/base.html:25
-#: support_signup/templates/event_schedule.html:7
-msgid "Schedule"
+#: support_signup/templates/base.html:28
+msgid "Roles"
 msgstr ""
 
-#: support_signup/templates/base.html:30
+#: support_signup/templates/base.html:33
 msgid "Language"
-msgstr ""
-
-#: support_signup/templates/event_schedule.html:11
-msgid "Title"
-msgstr ""
-
-#: support_signup/templates/event_schedule.html:12
-msgid "Description"
-msgstr ""
-
-#: support_signup/templates/event_schedule.html:13
-msgid "Start Time"
-msgstr ""
-
-#: support_signup/templates/event_schedule.html:14
-msgid "End Time"
 msgstr ""
 
 #: support_signup/templates/support_signup/about.html:10
@@ -118,11 +122,11 @@ msgstr ""
 msgid "Thank you for signing up!"
 msgstr ""
 
-#: support_signup/views.py:99
+#: support_signup/views.py:86
 msgid "Confirm your attendance"
 msgstr ""
 
-#: support_signup/views.py:100
+#: support_signup/views.py:87
 #, python-format
 msgid ""
 "Please confirm your attendance by clicking on the following link: http://%s%s"

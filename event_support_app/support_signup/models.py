@@ -1,17 +1,4 @@
 from django.db import models
-import uuid
-from django.utils import timezone
-from django.urls import reverse
-
-
-class Schedule(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
-
-    def __str__(self):
-        return self.title
 
 
 class Shift(models.Model):
