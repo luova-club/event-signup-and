@@ -29,10 +29,11 @@
   </div>
 </form>
 <script>
-  const roleSelect = document.querySelector("#id_role");
-  const shiftsSelect = document.querySelector("#id_shifts");
+const roleSelect = document.querySelector("#id_role");
+const shiftsSelect = document.querySelector("#id_shifts");
 
-  function getShiftsForRole(roleId) {
+async function getShiftsForRole(roleId) {
+  try {
     const response = await fetch(`/get_shifts_for_role/${roleId}/`);
     const data = await response.json();
     // Update the list of shifts
@@ -40,20 +41,22 @@
     for (const shift of data) {
       const option = document.createElement("option");
       option.value = shift.id;
-      option.textContent = `${shift.date} ${shift.start_time}-${shift.end_time}`;
+      option.innerText = `${shift.date} ${shift.start_time}-${shift.end_time}`;
       shiftsSelect.appendChild(option);
     }
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  // Call the function with the first role ID when the HTML is loaded
-  window.addEventListener('load', () => {
-    getShiftsForRole(roleSelect.value);
-  });
+// Call the function with the first role ID when the HTML is loaded
+window.addEventListener('load', () => {
+  getShiftsForRole(roleSelect.value);
+});
 
-  // Update the shifts when the role is changed
-  roleSelect.addEventListener("change", async (event) => {
-    getShiftsForRole(event.target.value);
-  });
-
+// Update the shifts when the role is changed
+roleSelect.addEventListener("change", async (event) => {
+  getShiftsForRole(event.target.value);
+});
 </script>
 {% endblock %}
