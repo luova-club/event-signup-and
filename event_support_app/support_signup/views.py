@@ -90,7 +90,7 @@ class ParticipantCreateView(CreateView):
 
         message += _('If you have any questions, you can ask them by replying to this email')
 
-
+ 
         from_email = "info@chillauskeskus.luova.club"
         recipient_list = [participant.email]
         send_mail(subject, message, from_email,
