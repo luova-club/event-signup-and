@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 11:05+0000\n"
+"POT-Creation-Date: 2023-05-14 08:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,8 +145,23 @@ msgstr "Vahvista osallistumisesi"
 #: support_signup/views.py:87
 #, python-format
 msgid ""
-"Please confirm your attendance by clicking on the following link: http://%s%s"
+"Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n"
+"%s \n"
+msgstr "Kiitos, kun ilmoittauduit auttamaan Chillauskeskukseen roolissa `%s` vuoroissa: \n %s \n"
+
+#: support_signup/views.py:89
+#, fuzzy, python-format
+#| msgid ""
+#| "Please confirm your attendance by clicking on the following link: http://"
+#| "%s%s"
+msgid ""
+"Please confirm your attendance by clicking on the following link: http://%s"
+"%s\n"
 msgstr "Vahvista osallistumisesi klikkaamalla linkkiä: http://%s%s"
+
+#: support_signup/views.py:91
+msgid "If you have any questions, you can ask them by replying to this email"
+msgstr "Jos sinulla on kysyttävää, voit kysyä niitä vastaamalla tähän sähköpostiin."
 
 #~ msgid "Name"
 #~ msgstr "Nimi"
