@@ -84,8 +84,9 @@ class ParticipantCreateView(CreateView):
 
         # Send confirmation email
         subject = _('Confirm your attendance')
-        message = _('Please confirm your attendance by clicking on the following link: http://%s%s') % (
+        message = _('Thank you for signing up to help Chillauskeskus in a role %s in shifts: %s. Please confirm your attendance by clicking on the following link: http://%s%s') % (role, shifts,
             self.request.get_host(), reverse('confirm_attendance', args=[token]))
+
 
         from_email = "info@chillauskeskus.luova.club"
         recipient_list = [participant.email]

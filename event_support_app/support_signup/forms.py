@@ -9,15 +9,6 @@ class ParticipantForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # Sort shifts per day
 
-        if 'role' in self.data:
-            try:
-                role_id = int(self.data.get('role'))
-                role = Role.objects.get(id=role_id)
-            except (ValueError, TypeError, Role.DoesNotExist):
-                pass
-        elif self.instance.pk:
-            self.fields['shifts'].queryset = self.instance.role.shifts.all().order_by('date', 'start_time')
-
     class Meta:
         model = Participant
         fields = ['name', 'email', 'shifts', 'role']

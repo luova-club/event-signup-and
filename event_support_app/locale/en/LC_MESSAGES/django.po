@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 09:56+0000\n"
+"POT-Creation-Date: 2023-05-13 11:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,12 +39,12 @@ msgstr ""
 msgid "End Time"
 msgstr ""
 
-#: support_signup/forms.py:25
+#: support_signup/forms.py:16
 #: support_signup/templates/support_signup/participant_form.html:11
 msgid "Nickname"
 msgstr ""
 
-#: support_signup/forms.py:26
+#: support_signup/forms.py:17
 #: support_signup/templates/support_signup/participant_form.html:15
 msgid "Email"
 msgstr ""
@@ -106,6 +106,10 @@ msgstr ""
 msgid "Sign up for support roles"
 msgstr "Sign up"
 
+#: support_signup/templates/support_signup/participant_form.html:7
+msgid "Support Sign Up"
+msgstr ""
+
 #: support_signup/templates/support_signup/participant_form.html:19
 msgid "Role"
 msgstr ""
@@ -114,7 +118,7 @@ msgstr ""
 msgid "Shifts"
 msgstr ""
 
-#: support_signup/templates/support_signup/participant_form.html:27
+#: support_signup/templates/support_signup/participant_form.html:28
 msgid "Sign up"
 msgstr ""
 
