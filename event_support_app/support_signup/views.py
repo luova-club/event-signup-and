@@ -62,18 +62,29 @@ class ParticipantCreateView(CreateView):
     form_class = ParticipantForm
     success_url = reverse_lazy('thank_you')
 
+    def shifts_to_list(self, shiftit: list):
+        shifts = ""
+        for shift in shiftit:
+            # Create a string representation of the shift
+            shift_str = f"{shift.date} {shift.start_time}-{shift.end_time},"
+            
+            # Add the string representation to the list
+            shifts += shift_str
+
+        return shifts
+
     def form_valid(self, form):
         participant = form.save(commit=False)
         participant.save()
         shifts = form.cleaned_data.get('shifts', [])
         for shift in shifts:
-            role = form.cleaned_data.get('role')
-            role = Role.objects.get(name=role)
             ParticipantShift.objects.create(
                 participant=participant,
-                role=role,
                 shift=shift
             )
+        role = form.cleaned_data.get('role')
+        role = Role.objects.get(name=role)
+        participant.role = role
 
         # Generate confirmation token
         token = get_random_string(length=32)
@@ -84,11 +95,21 @@ class ParticipantCreateView(CreateView):
 
         # Send confirmation email
         subject = _('Confirm your attendance')
-        message = _('Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n%s \n') % (role, str(shifts))
+        message = _('Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n%s \n') % (role, self.shifts_to_list(shifts))
         
-        message += _('Please confirm your attendance by clicking on the following link: http://%s%s\n') % (self.request.get_host(), reverse('confirm_attendance', args=[token]))
+        message += f"{_('Please confirm your attendance by clicking on the following link:')}https://{self.request.get_host()}{reverse('confirm_attendance', args=[token])}"
 
-        message += _('If you have any questions, you can ask them by replying to this email')
+        message += _('If you have any questions, you can ask them by replying to this email\n')
+        
+        message += _("""
+        Kind regards, Oliver
+        
+        Oliver Vuorenmaa
+        Coordinator, XR Youth Finland (Elokapina nuoret)
+        Interim Head Coordinator, Chillauskeskus
+        +358442378588
+        vuoreol@gmail.com
+        """)
 
  
         from_email = "info@chillauskeskus.luova.club"
@@ -100,8 +121,44 @@ class ParticipantCreateView(CreateView):
 
 
 class ParticipantConfirmView(View):
+    def shifts_to_list(self, shiftit: list):
+        shifts = ""
+        for shift in shiftit:
+            # Create a string representation of the shift
+            shift_str = f"{shift.date} {shift.start_time}-{shift.end_time},"
+            
+            # Add the string representation to the list
+            shifts += shift_str
+
+        return shifts
+
     def get(self, request, token):
         participant = Participant.objects.get(token=token)
         participant.is_confirmed = True
         participant.save()
+
+        
+        # Send confirmation email
+        subject = _('Thank you for confirming your participation!')
+        message = ''
+        
+        message += _('Thank you for confirming your participation to Chillauskeskus for the following role: %s\n in the following shifts: \n%s') % (str(participant.role), self.shifts_to_list(participant.shifts))
+
+        message += _('If you have any questions, you can ask them by replying to this email')
+
+        message += _("""
+        Kind regards, Oliver
+        
+        Oliver Vuorenmaa
+        Coordinator, XR Youth Finland (Elokapina nuoret)
+        Interim Head Coordinator, Chillauskeskus
+        +358442378588
+        vuoreol@gmail.com
+        """)
+
+        from_email = "info@chillauskeskus.luova.club"
+        recipient_list = [participant.email]
+        send_mail(subject, message, from_email,
+                  recipient_list, fail_silently=False)
+
         return redirect('home')

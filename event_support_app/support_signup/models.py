@@ -32,6 +32,7 @@ class Participant(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     shifts = models.ManyToManyField(Shift, through='ParticipantShift')
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
     token = models.CharField(max_length=100)
     is_confirmed = models.BooleanField(default=False)
@@ -39,11 +40,10 @@ class Participant(models.Model):
 
 class ParticipantShift(models.Model):
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE)
 
     class Meta:
         unique_together = ('participant', 'shift')
 
     def __str__(self):
-        return f'{self.participant} - {self.role} - {self.shift}'
+        return f'{self.participant} - {self.shift}'
