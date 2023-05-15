@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 08:09+0000\n"
+"POT-Creation-Date: 2023-05-15 13:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,7 @@ msgid "Title"
 msgstr "Otsikko"
 
 #: schedule/templates/event_schedule.html:12
+#: support_signup/templates/role_list.html:11
 msgid "Description"
 msgstr "Selostus"
 
@@ -62,6 +63,28 @@ msgstr "Roolit"
 #: support_signup/templates/base.html:33
 msgid "Language"
 msgstr "Kieli"
+
+#: support_signup/templates/role_list.html:6
+msgid "Roles and Shifts"
+msgstr "Roolit ja vuorot"
+
+#: support_signup/templates/role_list.html:10
+#: support_signup/templates/support_signup/participant_form.html:19
+msgid "Role"
+msgstr "Rooli"
+
+#: support_signup/templates/role_list.html:12
+#: support_signup/templates/support_signup/participant_form.html:23
+msgid "Shifts"
+msgstr "Vuorot"
+
+#: support_signup/templates/role_list.html:25
+msgid "No shifts for this role"
+msgstr "Ei vuoroja tälle roolille"
+
+#: support_signup/templates/role_list.html:32
+msgid "No roles available"
+msgstr "Ei rooleja"
 
 #: support_signup/templates/support_signup/about.html:10
 msgid "What is Chillauskeskus?"
@@ -102,33 +125,25 @@ msgstr ""
 "Chillauskeskus järjestetään 17.-19. heinäkuuta ja se pidetään Töölönlahden "
 "puistossa Helsingissä, Suomessa."
 
-#: support_signup/templates/support_signup/home.html:10
+#: support_signup/templates/support_signup/home.html:9
+msgid "Sign up for support roles"
+msgstr "Ilmoittaudu auttamaan"
+
+#: support_signup/templates/support_signup/home.html:13
 msgid "Do you want to perform?"
 msgstr "Haluaisitko esiintyä?"
 
-#: support_signup/templates/support_signup/home.html:11
+#: support_signup/templates/support_signup/home.html:14
 msgid "If you want to perform, contact us!"
 msgstr "Jos haluaisit esiintyä, ilmoita meille!"
 
-#: support_signup/templates/support_signup/home.html:13
+#: support_signup/templates/support_signup/home.html:16
 msgid "I want to perform"
 msgstr "Haluan esiintyä!"
-
-#: support_signup/templates/support_signup/home.html:18
-msgid "Sign up for support roles"
-msgstr "Ilmoittaudu auttamaan"
 
 #: support_signup/templates/support_signup/participant_form.html:7
 msgid "Support Sign Up"
 msgstr "Ilmoittautuminen"
-
-#: support_signup/templates/support_signup/participant_form.html:19
-msgid "Role"
-msgstr "Rooli"
-
-#: support_signup/templates/support_signup/participant_form.html:23
-msgid "Shifts"
-msgstr "Vuorot"
 
 #: support_signup/templates/support_signup/participant_form.html:28
 msgid "Sign up"
@@ -138,30 +153,76 @@ msgstr "Ilmoittaudu"
 msgid "Thank you for signing up!"
 msgstr "Kiitos kun ilmoittauduit!"
 
-#: support_signup/views.py:86
+#: support_signup/views.py:97
 msgid "Confirm your attendance"
 msgstr "Vahvista osallistumisesi"
 
-#: support_signup/views.py:87
+#: support_signup/views.py:98
 #, python-format
 msgid ""
 "Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n"
 "%s \n"
-msgstr "Kiitos, kun ilmoittauduit auttamaan Chillauskeskukseen roolissa `%s` vuoroissa: \n %s \n"
+msgstr ""
+"Kiitos, kun ilmoittauduit auttamaan Chillauskeskukseen roolissa `%s` "
+"vuoroissa: \n"
+" %s \n"
 
-#: support_signup/views.py:89
+#: support_signup/views.py:102
+#, fuzzy
+#| msgid ""
+#| "If you have any questions, you can ask them by replying to this email"
+msgid "If you have any questions, you can ask them by replying to this email\n"
+msgstr ""
+"Jos sinulla on kysyttävää, voit kysyä niitä vastaamalla tähän sähköpostiin."
+
+#: support_signup/views.py:104 support_signup/views.py:149
+msgid ""
+"\n"
+"        Kind regards, Oliver\n"
+"        \n"
+"        Oliver Vuorenmaa\n"
+"        Coordinator, XR Youth Finland (Elokapina nuoret)\n"
+"        Interim Head Coordinator, Chillauskeskus\n"
+"        +358442378588\n"
+"        vuoreol@gmail.com\n"
+"        "
+msgstr ""
+
+#: support_signup/views.py:142
+#, fuzzy
+#| msgid "Thank you for signing up!"
+msgid "Thank you for confirming your participation!"
+msgstr "Kiitos kun ilmoittauduit!"
+
+#: support_signup/views.py:145
 #, fuzzy, python-format
 #| msgid ""
-#| "Please confirm your attendance by clicking on the following link: http://"
-#| "%s%s"
+#| "Thank you for signing up to help Chillauskeskus in a role `%s` in "
+#| "shifts: \n"
+#| "%s \n"
 msgid ""
-"Please confirm your attendance by clicking on the following link: http://%s"
-"%s\n"
-msgstr "Vahvista osallistumisesi klikkaamalla linkkiä: http://%s%s"
+"Thank you for confirming your participation to Chillauskeskus for the "
+"following role: %s\n"
+" in the following shifts: \n"
+"%s"
+msgstr ""
+"Kiitos, kun ilmoittauduit auttamaan Chillauskeskukseen roolissa `%s` "
+"vuoroissa: \n"
+" %s \n"
 
-#: support_signup/views.py:91
+#: support_signup/views.py:147
 msgid "If you have any questions, you can ask them by replying to this email"
-msgstr "Jos sinulla on kysyttävää, voit kysyä niitä vastaamalla tähän sähköpostiin."
+msgstr ""
+"Jos sinulla on kysyttävää, voit kysyä niitä vastaamalla tähän sähköpostiin."
+
+#, fuzzy
+#~| msgid ""
+#~| "Please confirm your attendance by clicking on the following link: http://"
+#~| "%s%s"
+#~ msgid ""
+#~ "Please confirm your attendance by clicking on the following link: http://"
+#~ "%s%s\n"
+#~ msgstr "Vahvista osallistumisesi klikkaamalla linkkiä: http://%s%s"
 
 #~ msgid "Name"
 #~ msgstr "Nimi"

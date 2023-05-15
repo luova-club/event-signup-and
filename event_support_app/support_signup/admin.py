@@ -45,13 +45,13 @@ admin.site.register(Role, RoleAdmin)
 
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email')
-    search_fields = ('name', 'email')
+    list_display = ('name', 'email', 'role')
+    search_fields = ('name', 'email', 'role')
     inlines = [ParticipantShiftInline]
 
 
 @admin.register(ParticipantShift)
 class ParticipantShiftAdmin(admin.ModelAdmin):
-    list_display = ('participant', 'role', 'shift')
-    search_fields = ('participant__name', 'role__name', 'shift__date')
-    list_filter = ('shift__date', 'role__name')
+    list_display = ('participant', 'shift')
+    search_fields = ('participant__name', 'shift__date')
+    list_filter = ['shift__date']

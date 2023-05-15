@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-14 08:09+0000\n"
+"POT-Creation-Date: 2023-05-15 13:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,7 @@ msgid "Title"
 msgstr ""
 
 #: schedule/templates/event_schedule.html:12
+#: support_signup/templates/role_list.html:11
 msgid "Description"
 msgstr ""
 
@@ -61,6 +62,28 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: support_signup/templates/role_list.html:6
+msgid "Roles and Shifts"
+msgstr ""
+
+#: support_signup/templates/role_list.html:10
+#: support_signup/templates/support_signup/participant_form.html:19
+msgid "Role"
+msgstr ""
+
+#: support_signup/templates/role_list.html:12
+#: support_signup/templates/support_signup/participant_form.html:23
+msgid "Shifts"
+msgstr ""
+
+#: support_signup/templates/role_list.html:25
+msgid "No shifts for this role"
+msgstr ""
+
+#: support_signup/templates/role_list.html:32
+msgid "No roles available"
+msgstr ""
+
 #: support_signup/templates/support_signup/about.html:10
 msgid "What is Chillauskeskus?"
 msgstr ""
@@ -90,32 +113,24 @@ msgid ""
 "Helsinki, Finland."
 msgstr ""
 
-#: support_signup/templates/support_signup/home.html:10
-msgid "Do you want to perform?"
-msgstr ""
-
-#: support_signup/templates/support_signup/home.html:11
-msgid "If you want to perform, contact us!"
-msgstr ""
-
-#: support_signup/templates/support_signup/home.html:13
-msgid "I want to perform"
-msgstr ""
-
-#: support_signup/templates/support_signup/home.html:18
+#: support_signup/templates/support_signup/home.html:9
 msgid "Sign up for support roles"
 msgstr "Sign up"
 
+#: support_signup/templates/support_signup/home.html:13
+msgid "Do you want to perform?"
+msgstr ""
+
+#: support_signup/templates/support_signup/home.html:14
+msgid "If you want to perform, contact us!"
+msgstr ""
+
+#: support_signup/templates/support_signup/home.html:16
+msgid "I want to perform"
+msgstr ""
+
 #: support_signup/templates/support_signup/participant_form.html:7
 msgid "Support Sign Up"
-msgstr ""
-
-#: support_signup/templates/support_signup/participant_form.html:19
-msgid "Role"
-msgstr ""
-
-#: support_signup/templates/support_signup/participant_form.html:23
-msgid "Shifts"
 msgstr ""
 
 #: support_signup/templates/support_signup/participant_form.html:28
@@ -126,24 +141,47 @@ msgstr ""
 msgid "Thank you for signing up!"
 msgstr ""
 
-#: support_signup/views.py:86
+#: support_signup/views.py:97
 msgid "Confirm your attendance"
 msgstr ""
 
-#: support_signup/views.py:87
+#: support_signup/views.py:98
 #, python-format
 msgid ""
 "Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n"
 "%s \n"
 msgstr ""
 
-#: support_signup/views.py:89
-#, python-format
-msgid ""
-"Please confirm your attendance by clicking on the following link: http://%s"
-"%s\n"
+#: support_signup/views.py:102
+msgid "If you have any questions, you can ask them by replying to this email\n"
 msgstr ""
 
-#: support_signup/views.py:91
+#: support_signup/views.py:104 support_signup/views.py:149
+msgid ""
+"\n"
+"        Kind regards, Oliver\n"
+"        \n"
+"        Oliver Vuorenmaa\n"
+"        Coordinator, XR Youth Finland (Elokapina nuoret)\n"
+"        Interim Head Coordinator, Chillauskeskus\n"
+"        +358442378588\n"
+"        vuoreol@gmail.com\n"
+"        "
+msgstr ""
+
+#: support_signup/views.py:142
+msgid "Thank you for confirming your participation!"
+msgstr ""
+
+#: support_signup/views.py:145
+#, python-format
+msgid ""
+"Thank you for confirming your participation to Chillauskeskus for the "
+"following role: %s\n"
+" in the following shifts: \n"
+"%s"
+msgstr ""
+
+#: support_signup/views.py:147
 msgid "If you have any questions, you can ask them by replying to this email"
 msgstr ""
