@@ -66,7 +66,7 @@ class ParticipantCreateView(CreateView):
         shifts = ""
         for shift in shiftit:
             # Create a string representation of the shift
-            shift_str = f"{shift.date} {shift.start_time}-{shift.end_time},"
+            shift_str = f"{str(shift)},"
             
             # Add the string representation to the list
             shifts += shift_str
@@ -95,7 +95,7 @@ class ParticipantCreateView(CreateView):
 
         # Send confirmation email
         subject = _('Confirm your attendance')
-        message = _('Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n%s \n') % (role, self.shifts_to_list(shifts))
+        message = _('Thank you for signing up to help Chillauskeskus in a role `%s` in shifts: \n%s \n') % (str(role), self.shifts_to_list(shifts))
         
         message += f"{_('Please confirm your attendance by clicking on the following link:')}https://{self.request.get_host()}{reverse('confirm_attendance', args=[token])}"
 
