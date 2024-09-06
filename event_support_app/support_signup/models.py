@@ -13,10 +13,10 @@ class Shift(models.Model):
 class Role(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    shifts = models.ManyToManyField(Shift, through='RoleShift')
+    shifts = models.ManyToManyField(Shift, through="RoleShift")
 
     def __str__(self):
-        return f'{self.name}'
+        return f"{self.name}"
 
 
 class RoleShift(models.Model):
@@ -24,14 +24,14 @@ class RoleShift(models.Model):
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.role} - {self.shift}'
+        return f"{self.role} - {self.shift}"
 
 
 class Participant(models.Model):
     # existing fields
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    shifts = models.ManyToManyField(Shift, through='ParticipantShift')
+    shifts = models.ManyToManyField(Shift, through="ParticipantShift")
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
     token = models.CharField(max_length=100)
@@ -43,7 +43,7 @@ class ParticipantShift(models.Model):
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ('participant', 'shift')
+        unique_together = ("participant", "shift")
 
     def __str__(self):
-        return f'{self.participant} - {self.shift}'
+        return f"{self.participant} - {self.shift}"

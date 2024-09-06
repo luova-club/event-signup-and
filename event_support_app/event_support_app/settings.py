@@ -29,7 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ["https://botsarefuture-musical-disco-jpgjwvjjx9pcrwv-8000.preview.app.github.dev"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://botsarefuture-musical-disco-jpgjwvjjx9pcrwv-8000.preview.app.github.dev"
+]
 
 # Application definition
 
@@ -41,9 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "support_signup",
-    'django_bootstrap5',
-    "schedule"
-
+    "django_bootstrap5",
+    "schedule",
 ]
 
 MIDDLEWARE = [
@@ -54,9 +55,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "event_support_app.urls"
@@ -128,15 +128,13 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 # Define the directory where static files will be collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Define the URL prefix for static files
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Define the directories where Django will search for static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -144,12 +142,12 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, "locale"),
 ]
 
 LANGUAGES = [
-    ('en', 'English'),
-    ('fi', 'Suomi'),
+    ("en", "English"),
+    ("fi", "Suomi"),
 ]
 
-LANGUAGE_CODE = 'fi'
+LANGUAGE_CODE = "fi"
