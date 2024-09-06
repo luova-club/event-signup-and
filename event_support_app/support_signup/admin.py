@@ -14,12 +14,12 @@ class ParticipantShiftInline(admin.TabularInline):
 
 
 class TimeInput(forms.TimeInput):
-    input_type = 'time'
+    input_type = "time"
 
     def format_value(self, value):
         if isinstance(value, int):
             # Convert integer input to HH:MM format
-            return f'{value:02}:00:00'
+            return f"{value:02}:00:00"
         return super().format_value(value)
 
 
@@ -45,13 +45,13 @@ admin.site.register(Role, RoleAdmin)
 
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'role')
-    search_fields = ('name', 'email', 'role')
+    list_display = ("name", "email", "role")
+    search_fields = ("name", "email", "role")
     inlines = [ParticipantShiftInline]
 
 
 @admin.register(ParticipantShift)
 class ParticipantShiftAdmin(admin.ModelAdmin):
-    list_display = ('participant', 'shift')
-    search_fields = ('participant__name', 'shift__date')
-    list_filter = ['shift__date']
+    list_display = ("participant", "shift")
+    search_fields = ("participant__name", "shift__date")
+    list_filter = ["shift__date"]
